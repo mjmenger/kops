@@ -557,7 +557,7 @@ func (in *Cluster) DeepCopyObject() runtime.Object {
 func (in *ClusterList) DeepCopyInto(out *ClusterList) {
 	*out = *in
 	out.TypeMeta = in.TypeMeta
-	out.ListMeta = in.ListMeta
+	in.ListMeta.DeepCopyInto(&out.ListMeta)
 	if in.Items != nil {
 		in, out := &in.Items, &out.Items
 		*out = make([]Cluster, len(*in))
@@ -874,6 +874,11 @@ func (in *DockerConfig) DeepCopyInto(out *DockerConfig) {
 	}
 	if in.DefaultUlimit != nil {
 		in, out := &in.DefaultUlimit, &out.DefaultUlimit
+		*out = make([]string, len(*in))
+		copy(*out, *in)
+	}
+	if in.ExecOpt != nil {
+		in, out := &in.ExecOpt, &out.ExecOpt
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
@@ -1386,7 +1391,7 @@ func (in *InstanceGroup) DeepCopyObject() runtime.Object {
 func (in *InstanceGroupList) DeepCopyInto(out *InstanceGroupList) {
 	*out = *in
 	out.TypeMeta = in.TypeMeta
-	out.ListMeta = in.ListMeta
+	in.ListMeta.DeepCopyInto(&out.ListMeta)
 	if in.Items != nil {
 		in, out := &in.Items, &out.Items
 		*out = make([]InstanceGroup, len(*in))
@@ -3003,7 +3008,7 @@ func (in *SSHCredential) DeepCopyObject() runtime.Object {
 func (in *SSHCredentialList) DeepCopyInto(out *SSHCredentialList) {
 	*out = *in
 	out.TypeMeta = in.TypeMeta
-	out.ListMeta = in.ListMeta
+	in.ListMeta.DeepCopyInto(&out.ListMeta)
 	if in.Items != nil {
 		in, out := &in.Items, &out.Items
 		*out = make([]SSHCredential, len(*in))

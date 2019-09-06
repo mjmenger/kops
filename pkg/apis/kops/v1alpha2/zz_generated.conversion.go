@@ -1159,6 +1159,7 @@ func autoConvert_v1alpha2_CalicoNetworkingSpec_To_kops_CalicoNetworkingSpec(in *
 	out.PrometheusGoMetricsEnabled = in.PrometheusGoMetricsEnabled
 	out.PrometheusProcessMetricsEnabled = in.PrometheusProcessMetricsEnabled
 	out.MajorVersion = in.MajorVersion
+	out.IPIPMode = in.IPIPMode
 	return nil
 }
 
@@ -1176,6 +1177,7 @@ func autoConvert_kops_CalicoNetworkingSpec_To_v1alpha2_CalicoNetworkingSpec(in *
 	out.PrometheusGoMetricsEnabled = in.PrometheusGoMetricsEnabled
 	out.PrometheusProcessMetricsEnabled = in.PrometheusProcessMetricsEnabled
 	out.MajorVersion = in.MajorVersion
+	out.IPIPMode = in.IPIPMode
 	return nil
 }
 
@@ -2186,6 +2188,7 @@ func autoConvert_v1alpha2_DockerConfig_To_kops_DockerConfig(in *DockerConfig, ou
 	out.BridgeIP = in.BridgeIP
 	out.DataRoot = in.DataRoot
 	out.DefaultUlimit = in.DefaultUlimit
+	out.ExecOpt = in.ExecOpt
 	out.ExecRoot = in.ExecRoot
 	out.Experimental = in.Experimental
 	out.Hosts = in.Hosts
@@ -2218,6 +2221,7 @@ func autoConvert_kops_DockerConfig_To_v1alpha2_DockerConfig(in *kops.DockerConfi
 	out.BridgeIP = in.BridgeIP
 	out.DataRoot = in.DataRoot
 	out.DefaultUlimit = in.DefaultUlimit
+	out.ExecOpt = in.ExecOpt
 	out.ExecRoot = in.ExecRoot
 	out.Experimental = in.Experimental
 	out.Hosts = in.Hosts
@@ -4862,6 +4866,7 @@ func autoConvert_v1alpha2_WeaveNetworkingSpec_To_kops_WeaveNetworkingSpec(in *We
 	out.MTU = in.MTU
 	out.ConnLimit = in.ConnLimit
 	out.NoMasqLocal = in.NoMasqLocal
+	out.NetExtraArgs = in.NetExtraArgs
 	return nil
 }
 
@@ -4874,6 +4879,7 @@ func autoConvert_kops_WeaveNetworkingSpec_To_v1alpha2_WeaveNetworkingSpec(in *ko
 	out.MTU = in.MTU
 	out.ConnLimit = in.ConnLimit
 	out.NoMasqLocal = in.NoMasqLocal
+	out.NetExtraArgs = in.NetExtraArgs
 	return nil
 }
 

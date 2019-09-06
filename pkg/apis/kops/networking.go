@@ -61,9 +61,10 @@ type KopeioNetworkingSpec struct {
 
 // WeaveNetworkingSpec declares that we want Weave networking
 type WeaveNetworkingSpec struct {
-	MTU         *int32 `json:"mtu,omitempty"`
-	ConnLimit   *int32 `json:"connLimit,omitempty"`
-	NoMasqLocal *int32 `json:"noMasqLocal,omitempty"`
+	MTU          *int32 `json:"mtu,omitempty"`
+	ConnLimit    *int32 `json:"connLimit,omitempty"`
+	NoMasqLocal  *int32 `json:"noMasqLocal,omitempty"`
+	NetExtraArgs string `json:"netExtraArgs,omitempty"`
 }
 
 // FlannelNetworkingSpec declares that we want Flannel networking
@@ -93,6 +94,8 @@ type CalicoNetworkingSpec struct {
 	PrometheusProcessMetricsEnabled bool `json:"prometheusProcessMetricsEnabled,omitempty"`
 	// MajorVersion is the version of Calico to use
 	MajorVersion string `json:"majorVersion,omitempty"`
+	// IPIPMode is mode for CALICO_IPV4POOL_IPIP
+	IPIPMode string `json:"ipipMode,omitempty"`
 }
 
 // CanalNetworkingSpec declares that we want Canal networking
